@@ -13,7 +13,7 @@ public class ProductRepository {
       products.add(new Product(2, "Smartphone", "Electronics", 499.99, 20));
       products.add(new Product(3, "Headphones", "Electronics", 199.99, 30));
       products.add(new Product(4, "Smartwatch", "Electronics", 299.99, 15));
-      products.add(new Product(5, "Tablet", "Electronics", 399.99, 25));
+      products.add(new Product(5, "Tablet", "phones", 399.99, 25));
       products.add(new Product(6, "Monitor", "Electronics", 249.99, 12));
       products.add(new Product(7, "Keyboard", "Electronics", 49.99, 50));
       products.add(new Product(8, "Mouse", "Electronics", 29.99, 60));
