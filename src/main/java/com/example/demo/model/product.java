@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
-public class product {  
-    private Long id;
+public class Product {  
+    private Integer id;
     private String name;
     private String category;
     private Double price;
     private Integer stock;
 
-    public product(Long id, String name, String category, Double price, Integer stock) {
+    public Product(Integer id, String name, String category, Double price, Integer stock) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -15,10 +15,10 @@ public class product {
         this.stock = stock;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getName() {
