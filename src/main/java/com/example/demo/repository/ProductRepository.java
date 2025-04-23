@@ -29,6 +29,16 @@ public class ProductRepository {
       products.add(new Product(18, "Graphics Card", "Electronics", 499.99, 3));
       products.add(new Product(19, "Motherboard", "Electronics", 199.99, 10));
       products.add(new Product(20, "Power Supply", "Electronics", 79.99, 25));
+      products.add(new Product(21, "SSD", "Electronics", 129.99, 15));
+      products.add(new Product(22, "HDD", "Electronics", 69.99, 30));
+      products.add(new Product(23, "RAM", "Electronics", 89.99, 20));
+      products.add(new Product(24, "CPU", "Electronics", 299.99, 8));
+      products.add(new Product(25, "Cooling Fan", "Electronics", 39.99, 40));
+      products.add(new Product(26, "Laptop Stand", "Electronics", 29.99, 50));
+      products.add(new Product(27, "Mouse Pad", "Electronics", 9.99, 100));
+      products.add(new Product(28, "Laptop Bag", "Electronics", 49.99, 20));
+      products.add(new Product(29, "Phone Case", "Electronics", 19.99, 60));
+      products.add(new Product(30, "Screen Protector", "Electronics", 14.99, 80));
       return products;
     }
 }
