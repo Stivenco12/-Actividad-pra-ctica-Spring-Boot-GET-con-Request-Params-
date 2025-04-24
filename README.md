@@ -1,5 +1,4 @@
 
-```markdown
 # 🧪 Actividad Práctica - Spring Boot: GET con Request Params
 
 Este proyecto es una aplicación básica desarrollada con **Spring Boot** que demuestra cómo utilizar **parámetros de solicitud (`@RequestParam`)** para manejar datos de entrada en controladores REST. Incluye ejemplos relacionados con clientes y productos.
@@ -89,4 +88,4 @@ http://localhost:8080
 
 ## ✨ Créditos
 
-Este proyecto fue creado por Stivenco12 como una actividad práctica para aprender sobre **Request Parameters en Spring Boot**.
+Este proyecto fue creado como una actividad práctica para aprender sobre **Request Parameters en Spring Boot**.
