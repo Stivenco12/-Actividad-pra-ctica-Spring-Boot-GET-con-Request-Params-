@@ -16,26 +16,31 @@ public class CustomerController {
     private final CustomerRepository repo;
     public CustomerController(CustomerRepository repo) { this.repo = repo; }
     @RequestMapping("/user")
-        public String getuser(
+    public String getuser(
         @RequestParam(required = false) String firstName,
         @RequestParam(required = false) String lastName,
         @RequestParam(required = false) String email,
         Model model
     ) {
+        if (firstName == null || lastName == null || email == null) {
+            model.addAttribute("error", "Faltan campos obligatorios");
+            return "index";
+        }
 
-    List<Customer> filteredUsers = repo.findAllcCustomers().stream()
-        .filter(customer -> (firstName == null || customer.getFirstName().equalsIgnoreCase(firstName)) &&
-                (lastName == null || customer.getLastName().equalsIgnoreCase(lastName)) &&
-                (email == null || customer.getEmail().equalsIgnoreCase(email)))
-        .collect(Collectors.toList());
+        List<Customer> filteredUsers = repo.findAllcCustomers().stream()
+            .filter(customer ->
+                customer.getFirstName().equalsIgnoreCase(firstName) &&
+                customer.getLastName().equalsIgnoreCase(lastName) &&
+                customer.getEmail().equalsIgnoreCase(email))
+            .collect(Collectors.toList());
 
-    if (!filteredUsers.isEmpty()) {
-        model.addAttribute("user", "logiado correctamente"); 
-        return "product";
-    
-    } else {
-        model.addAttribute("error", "credenciales incorrectas");
-    }  
-        return "index"; 
+        if (!filteredUsers.isEmpty()) {
+            model.addAttribute("user", "logiado correctamente"); 
+            return "product";
+        } else {
+            model.addAttribute("error", "credenciales incorrectas");
+            return "index";
+        }
     }
+
 }
