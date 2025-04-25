@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import java.util.ArrayList;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
@@ -20,19 +21,30 @@ public class ProductController {
     
     @RequestMapping("/products")
     public String getProducts(
-        @RequestParam(required = false) Double minPrice ,
-        @RequestParam(required = false) Double maxPrice ,
+        @RequestParam(required = false) Double minPrice,
+        @RequestParam(required = false) Double maxPrice,
         @RequestParam(required = false) String category,
         Model model
     ) {
         List<product> listadoFiltrado = repo.findAll().stream()
             .filter(producto -> (minPrice == null || producto.getPrice() >= minPrice) &&
-                               (maxPrice == null || producto.getPrice() <= maxPrice ) &&
-                               (category == null || producto.getCategory().equalsIgnoreCase(category)))       
+                                (maxPrice == null || producto.getPrice() <= maxPrice) &&
+                                (category == null || producto.getCategory().equalsIgnoreCase(category)))
             .collect(Collectors.toList());
 
 
-        model.addAttribute("products", listadoFiltrado);
-        return "index"; 
+        model.addAttribute("productos", listadoFiltrado);
+
+        DoubleSummaryStatistics stats = listadoFiltrado.stream()
+            .collect(Collectors.summarizingDouble(product -> product.getPrice()));
+
+        model.addAttribute("count", stats.getCount());
+        model.addAttribute("avgPrice", stats.getAverage());
+        model.addAttribute("minPrice", stats.getMin());
+        model.addAttribute("maxPrice", stats.getMax());
+        model.addAttribute("totalValue", stats.getSum());
+
+        return "index";  
     }
+
 }

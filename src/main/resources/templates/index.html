@@ -22,9 +22,23 @@
     </form>
 
     <h2>Filtered Products</h2>
+    <h2>Productos Filtrados</h2>
     <ul>
-        <li th:each="product : ${products}" th:text="${product.name} + ' - $' + ${product.price}"></li>
-        <li th:each="stat : ${minPrice}" th:text="${minPrice}"></li>
+        <li th:each="producto : ${productos}">
+            <span th:text="${producto.name}"></span> - 
+            <span th:text="${producto.price}"></span> - 
+            <span th:text="${producto.category}"></span>
+        </li>
     </ul>
+    
+    <h3>Estadísticas de los Productos</h3>
+    <ul>
+        <li>Min Price: <span th:text="${minPrice}"></span></li>
+        <li>Max Price: <span th:text="${maxPrice}"></span></li>
+        <li>Average Price: <span th:text="${avgPrice}"></span></li>
+        <li>Total Value: <span th:text="${totalValue}"></span></li>
+        <li>Product Count: <span th:text="${count}"></span></li>
+    </ul>
+    
 </body>
 </html>
