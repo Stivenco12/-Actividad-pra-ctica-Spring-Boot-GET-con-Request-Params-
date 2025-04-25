@@ -3,7 +3,9 @@ package com.example.demo.repository;
 import java.util.ArrayList;
 import java.util.List;
 import com.example.demo.model.Customer;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CustomerRepository {
     public List<Customer> findAllcCustomers() {
         List<Customer> customers = new ArrayList<>();
