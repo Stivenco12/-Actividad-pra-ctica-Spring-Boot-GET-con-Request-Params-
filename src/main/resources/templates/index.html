@@ -24,6 +24,7 @@
     <h2>Filtered Products</h2>
     <ul>
         <li th:each="product : ${products}" th:text="${product.name} + ' - $' + ${product.price}"></li>
+        <li th:each="stat : ${minPrice}" th:text="${minPrice}"></li>
     </ul>
 </body>
 </html>

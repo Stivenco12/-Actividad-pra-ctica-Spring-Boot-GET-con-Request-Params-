@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.product;
+import com.example.demo.model.stats;
 import com.example.demo.repository.ProductRepository;
 
 @Controller
@@ -28,6 +30,8 @@ public class ProductController {
                                (maxPrice == null || producto.getPrice() <= maxPrice ) &&
                                (category == null || producto.getCategory().equalsIgnoreCase(category)))       
             .collect(Collectors.toList());
+
+
         model.addAttribute("products", listadoFiltrado);
         return "index"; 
     }
