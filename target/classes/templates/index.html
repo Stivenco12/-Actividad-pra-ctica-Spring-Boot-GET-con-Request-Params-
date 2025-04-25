@@ -5,44 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
-
 </head>
 <body>
-    <h1>Filter Products</h1>
-    <form action="/api/products" method="get">
-        <label for="minPrice">Min Price:</label>
-        <input required type="number" step="0.01" id="minPrice" name="minPrice">
+    <form action="/api/user" method="get">
+        <label for="firstName">nombre:</label>
+        <input required type="text" id="firstName" name="firstName">
 
-        <label for="maxPrice">Max Price:</label>
-        <input required type="number" step="0.01" id="maxPrice" name="maxPrice">
+        <label for="lastName">apellido:</label>
+        <input required type="text" id="lastName" name="lastName">
 
-        <label for="category">Category:</label>
-        <select id="category" name="category">
-            <option value="Electronics">Electronics</option>
-            <option value="Phones">Phones</option>
-        </select>
+        <label for="email">email:</label>
+        <input required type="text" id="email" name="email">
 
-        <button type="submit">Filter Products</button>
+        <button type="submit">login</button>
     </form>
 
-    <h2>Filtered Products</h2>
-    <h2>Productos Filtrados</h2>
-    <ul>
-        <li th:each="producto : ${productos}">
-            <span th:text="${producto.name}"></span> - 
-            <span th:text="${producto.price}"></span> - 
-            <span th:text="${producto.category}"></span>
-        </li>
-    </ul>
-    
-    <h3>Estadísticas de los Productos</h3>
-    <ul>
-        <li>Min Price: <span th:text="${minPrice}"></span></li>
-        <li>Max Price: <span th:text="${maxPrice}"></span></li>
-        <li>Average Price: <span th:text="${avgPrice}"></span></li>
-        <li>Total Value: <span th:text="${totalValue}"></span></li>
-        <li>Product Count: <span th:text="${count}"></span></li>
-    </ul>
-    
+    <p th:text="${user}"></p>
+    <p th:text="${error}"></p>
+    <p th:text="${email}"></p>
 </body>
 </html>

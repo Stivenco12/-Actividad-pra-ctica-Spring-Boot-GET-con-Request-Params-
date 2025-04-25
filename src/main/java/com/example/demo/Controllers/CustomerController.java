@@ -31,9 +31,11 @@ public class CustomerController {
 
     if (!filteredUsers.isEmpty()) {
         model.addAttribute("user", "logiado correctamente"); 
+        return "product";
+    
     } else {
         model.addAttribute("error", "credenciales incorrectas");
     }  
-        return "userDetails"; 
+        return "index"; 
     }
 }

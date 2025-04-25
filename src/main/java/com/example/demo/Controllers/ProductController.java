@@ -38,7 +38,7 @@ public class ProductController {
         model.addAttribute("maxPrice", stats.getMax());
         model.addAttribute("totalValue", stats.getSum());
 
-        return "index";  
+        return "product";  
     }
 
 }
