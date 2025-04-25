@@ -6,7 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.example.demo.model.Product;
+
+import com.example.demo.model.product;
 import com.example.demo.repository.ProductRepository;
 
 @Controller
@@ -22,7 +23,7 @@ public class ProductController {
         @RequestParam(required = false) String category,
         Model model
     ) {
-        List<Product> listadoFiltrado = repo.findAll().stream()
+        List<product> listadoFiltrado = repo.findAll().stream()
             .filter(producto -> (minPrice == null || producto.getPrice() >= minPrice) &&
                                (maxPrice == null || producto.getPrice() <= maxPrice ) &&
                                (category == null || producto.getCategory().equalsIgnoreCase(category)))       

@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
-public class Product {  
+public class product {  
     private Integer id;
     private String name;
     private String category;
     private Double price;
     private Integer stock;
 
-    public Product(Integer id, String name, String category, Double price, Integer stock) {
+    public product(Integer id, String name, String category, Double price, Integer stock) {
         this.id = id;
         this.name = name;
         this.category = category;
